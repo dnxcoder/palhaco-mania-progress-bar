@@ -93,6 +93,9 @@ setInterval(() => {
 
 }, speedBar);
 
+//reseting bar
+fixedContainerHorizontalProgressBar.style.width = "0%";
+
 //Creating pinBar
 
 const firstPinBar = document.createElement('div');
@@ -256,37 +259,46 @@ zeroPinBar.appendChild(zeroPinImage);
 
 
 let percentageBarSize = 0;
-fixedContainerHorizontalProgressBar.style.transition="1s";
-firstPinBar.style.transition='1.5s';
-secondPinBar.style.transition='1.5s';
-thirdPinBar.style.transition='1.5s';
-fourthPinBar.style.transition='1.5s';
+fixedContainerHorizontalProgressBar.style.transition = "1s";
+
+firstPinBar.style.opacity = '0';
+secondPinBar.style.opacity = '0';
+thirdPinBar.style.opacity = '0';
+fourthPinBar.style.opacity = '0';
+
+
 function nextStep() {
 
-    console.log(percentageBarSize);
-    fixedContainerHorizontalProgressBar.style.width = `${percentageBarSize}%`;
-
-    if(percentageBarSize==0){
-        firstPinBar.style.opacity='0';
-        secondPinBar.style.opacity='0';
-        thirdPinBar.style.opacity='0';
-        fourthPinBar.style.opacity='0';
-    }else if (percentageBarSize==25){
-        firstPinBar.style.opacity='1';
-    }else if (percentageBarSize==50){
-        secondPinBar.style.opacity='1';
-    }else if (percentageBarSize==75){
-        thirdPinBar.style.opacity='1';
-    }else if (percentageBarSize=='100'){
-        fourthPinBar.style.opacity='1';
-    }
+    firstPinBar.style.transition = '1.5s';
+    secondPinBar.style.transition = '1.5s';
+    thirdPinBar.style.transition = '1.5s';
+    fourthPinBar.style.transition = '1.5s';
+   
 
     percentageBarSize += 25;
     if (percentageBarSize > 100) {
-        console.log('como asism')
         percentageBarSize = 0;
     }
-   
+    console.log(percentageBarSize);
+    fixedContainerHorizontalProgressBar.style.width = `${percentageBarSize}%`;
+
+    if (percentageBarSize == 0) {
+        firstPinBar.style.opacity = '0';
+        secondPinBar.style.opacity = '0';
+        thirdPinBar.style.opacity = '0';
+        fourthPinBar.style.opacity = '0';
+    } else if (percentageBarSize == 25) {
+        firstPinBar.style.opacity = '1';
+    } else if (percentageBarSize == 50) {
+        secondPinBar.style.opacity = '1';
+    } else if (percentageBarSize == 75) {
+        thirdPinBar.style.opacity = '1';
+    } else if (percentageBarSize == '100') {
+        fourthPinBar.style.opacity = '1';
+    }
+
+
+
 };
 
 
