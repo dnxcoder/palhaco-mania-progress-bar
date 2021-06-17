@@ -1,4 +1,4 @@
-let stepBarProgress = 75;
+let stepBarProgress = 100;
 
 const pgbContainer = document.querySelector('.containerClownpg');
 
@@ -61,7 +61,7 @@ containerMovedHorizontalProgressBar.appendChild(smallOrangeBar);
 containerMovedHorizontalProgressBar.appendChild(smallWhiteBar);
 
 
-containerMovedHorizontalProgressBar.style.width = `${fixedContainerHorizontalProgressBar.clientWidth * 2}px`
+containerMovedHorizontalProgressBar.style.width = `${fixedContainerHorizontalProgressBar.clientWidth * 99}px`; //*2
 
 const quantityOfNecessarySmallBar = (containerMovedHorizontalProgressBar.clientWidth / smallOrangeBar.clientWidth);
 
@@ -77,7 +77,7 @@ for (let i = 0; i < quantityOfNecessarySmallBar; i++) {
     }
 };
 
-let barLocation = -fixedContainerHorizontalProgressBar.clientWidth * 1;
+let barLocation = -fixedContainerHorizontalProgressBar.clientWidth * 98; // *1
 let speedBar = 2;
 
 //Moving bars
@@ -253,14 +253,42 @@ zeroPinImage.style.position = 'absolute';
 zeroPinImage.style.top = '135px';
 zeroPinBar.appendChild(zeroPinImage);
 
-let asd = 0;
+
+
+let percentageBarSize = 0;
+fixedContainerHorizontalProgressBar.style.transition="1s";
+firstPinBar.style.transition='1.5s';
+secondPinBar.style.transition='1.5s';
+thirdPinBar.style.transition='1.5s';
+fourthPinBar.style.transition='1.5s';
 function nextStep() {
 
-    console.log(asd);
-    fixedContainerHorizontalProgressBar.style.width = `${asd}%`;
-    asd+=25;
-    if (asd > 100) {
-        console.log('como asism')
-        asd = 0;
+    console.log(percentageBarSize);
+    fixedContainerHorizontalProgressBar.style.width = `${percentageBarSize}%`;
+
+    if(percentageBarSize==0){
+        firstPinBar.style.opacity='0';
+        secondPinBar.style.opacity='0';
+        thirdPinBar.style.opacity='0';
+        fourthPinBar.style.opacity='0';
+    }else if (percentageBarSize==25){
+        firstPinBar.style.opacity='1';
+    }else if (percentageBarSize==50){
+        secondPinBar.style.opacity='1';
+    }else if (percentageBarSize==75){
+        thirdPinBar.style.opacity='1';
+    }else if (percentageBarSize=='100'){
+        fourthPinBar.style.opacity='1';
     }
+
+    percentageBarSize += 25;
+    if (percentageBarSize > 100) {
+        console.log('como asism')
+        percentageBarSize = 0;
+    }
+   
 };
+
+
+document.querySelector('.buttonNext').addEventListener('click', nextStep);
+
