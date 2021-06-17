@@ -6,15 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palhaço Mania</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="containerClownpg">
-        <img src="./step1.png">
-        <img src="./step2.png">
-        <img src="./step3.png">
+    <div class="container">
+        <div class="containerClownpg">
+            <img class="image-step-zero" src="./step0.png">
+            <img class="image-step-one" src="./step1.png">
+            <img class="image-step-two" src="./step2.png">
+            <img class="image-step-tree" src="./step3.png">
+            <img class="image-step-four" src="./step4.png">
+        </div>
     </div>
     <script src="./clownpg.js"></script>
+    <style>
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </body>
 
 </html>
