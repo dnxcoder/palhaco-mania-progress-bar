@@ -100,9 +100,12 @@ fixedContainerHorizontalProgressBar.style.width = "0%";
 
 //Creating pinBar
 
+const pinHeight = "90px";
+const pinWidth = "50px";
+
 const firstPinBar = document.createElement('div');
-firstPinBar.style.height = "5em";
-firstPinBar.style.width = "3em";
+firstPinBar.style.height = pinHeight; // 5em
+firstPinBar.style.width = pinWidth; // 3em
 firstPinBar.style.backgroundImage = "url('https://i.ibb.co/vJQghtM/snip.png')";
 firstPinBar.style.backgroundSize = "contain";
 firstPinBar.style.backgroundRepeat = "no-repeat";
@@ -144,55 +147,64 @@ zeroPinBar.style.top = `${-zeroPinBar.clientHeight}px`;
 secondPinBar.style.top = `${-secondPinBar.clientHeight}px`;
 fourthPinBar.style.top = `${-fourthPinBar.clientHeight}px`;
 
-//first pin text
+// Styling first pin text
 const firstPinText = document.createElement('p');
 firstPinText.style.fontFamily = "Fredoka One";
-firstPinText.style.position = "absolute";
 firstPinText.style.bottom = "-5em";
 firstPinText.style.transform = 'translateX(-2em)';
 firstPinText.style.textAlign = 'center';
 firstPinText.style.color = "#FF974B";
 firstPinText.style.width = '110px';
-firstPinText.innerHTML = `Me conte mais \n sobre você`
-firstPinBar.appendChild(firstPinText);
+firstPinText.innerHTML = `Me conte mais \n sobre você`;
+
+//Styling firt pin image
+
+const firstPinImage = document.querySelector('.image-step-one');
+firstPinImage.style.width = '100px';
+firstPinImage.style.height = '200px'
+
+// Apending pin-text and pin-image to div
+
+const firstPinContainer = document.createElement('div');
+firstPinContainer.appendChild(firstPinText);
+firstPinContainer.appendChild(firstPinImage);
+firstPinContainer.style.position = 'absolute';
+firstPinContainer.style.top=pinHeight;
+firstPinBar.appendChild(firstPinContainer);
 
 
-//firt pin image
-
-const clown1 = document.querySelector('.image-step-one');
-clown1.style.width = '100px';
-clown1.style.height = '200px'
-clown1.style.position = 'absolute';
-clown1.style.top = '140px'
-firstPinBar.appendChild(clown1);
-
-//second pin text
+//styling second pin text
 const secondPinText = document.createElement('p');
 secondPinText.style.fontFamily = "Fredoka One";
-secondPinText.style.position = "absolute";
 secondPinText.style.bottom = "-5em";
 secondPinText.style.transform = 'translateX(-2em) rotate(180deg)';
 secondPinText.style.textAlign = 'center';
 secondPinText.style.width = '110px';
 secondPinText.style.color = "#FF974B";
 secondPinText.innerHTML = `Que dia posso ir na sua festinha ?`
-secondPinBar.appendChild(secondPinText);
 
 
-//second pin image
+// styling second pin image
 
 const secondPinImage = document.querySelector('.image-step-two');
-secondPinImage.style.width = '100px';
-secondPinImage.style.height = '200px'
-secondPinImage.style.position = 'absolute';
-secondPinImage.style.top = '140px';
+secondPinImage.style.width = '125px';
+secondPinImage.style.height = '250px';
 secondPinImage.style.transform = 'rotate(180deg)';
-secondPinBar.appendChild(secondPinImage);
 
-//third pin text
+// appending second pin-image and pin-text to div
+const secondPinContainer = document.createElement('div');
+secondPinContainer.appendChild(secondPinText);
+secondPinContainer.appendChild(secondPinImage);
+
+// styling second-pin-container
+secondPinContainer.style.position='absolute';
+secondPinContainer.style.top=pinHeight;
+secondPinBar.appendChild(secondPinContainer);
+
+
+// styling third pin text
 const thirdPinText = document.createElement('p');
 thirdPinText.style.fontFamily = "Fredoka One";
-thirdPinText.style.position = "absolute";
 thirdPinText.style.bottom = "-5em";
 thirdPinText.style.transform = 'translateX(-2em)';
 thirdPinText.style.textAlign = 'center';
@@ -202,63 +214,72 @@ thirdPinText.innerHTML = `Qual suas cores favoritas ?`
 thirdPinBar.appendChild(thirdPinText);
 
 
-//third pin image
+// styling third pin image
 
 const thirdPinImage = document.querySelector('.image-step-tree');
-thirdPinImage.style.width = '150px';
-thirdPinImage.style.height = '300px'
-thirdPinImage.style.position = 'absolute';
+thirdPinImage.style.width = '125px';
+thirdPinImage.style.height = '250px'
 thirdPinImage.style.top = '100px';
 thirdPinBar.appendChild(thirdPinImage);
 
-//fourth pin text
+//style third pin-container
+const thirdPinContainer = document.createElement('div');
+thirdPinContainer.appendChild(thirdPinImage);
+thirdPinContainer.appendChild(thirdPinText);
+thirdPinBar.appendChild(thirdPinContainer);
+
+
+// styling fourth pin text
 const fourthPinText = document.createElement('p');
 fourthPinText.style.fontFamily = "Fredoka One";
-fourthPinText.style.position = "absolute";
+//fourthPinText.style.position = "absolute";
 fourthPinText.style.bottom = "-6em";
 fourthPinText.style.transform = 'translateX(-2em) rotate(180deg)';
 fourthPinText.style.textAlign = 'center';
 fourthPinText.style.width = '110px';
 fourthPinText.style.color = "#FF974B";
-fourthPinText.innerHTML = `Eba ! agora é só me esperar, logo estarei na sua festa`
-fourthPinBar.appendChild(fourthPinText);
+fourthPinText.innerHTML = `Eba ! agora é só me esperar, logo estarei na sua festa`;
 
 
-//fourth pin image
+//styling fourth pin image
 
 const fourthPinImage = document.querySelector('.image-step-four');
 fourthPinImage.style.width = '125px';
 fourthPinImage.style.height = '250px'
 fourthPinImage.style.transform = 'rotate(180deg)';
-fourthPinImage.style.position = 'absolute';
-fourthPinImage.style.top = '135px';
-fourthPinBar.appendChild(fourthPinImage);
+
+
+const fourthPinContainer = document.createElement('div');
+fourthPinContainer.appendChild(fourthPinImage);
+fourthPinContainer.appendChild(fourthPinText);
+fourthPinBar.appendChild(fourthPinContainer);
 
 
 //zero pin text
 const zeroPinText = document.createElement('p');
 zeroPinText.style.fontFamily = "Fredoka One";
-zeroPinText.style.position = "absolute";
+
 zeroPinText.style.bottom = "-6em";
 zeroPinText.style.transform = 'translateX(-2em) rotate(180deg)';
 zeroPinText.style.textAlign = 'center';
 zeroPinText.style.width = '110px';
 zeroPinText.style.color = "#FF974B";
-zeroPinText.innerHTML = `Olá venha comigo, e vamos fazer sua festinha`
-zeroPinBar.appendChild(zeroPinText);
-
+zeroPinText.innerHTML = `Olá venha comigo, e vamos fazer sua festinha`;
 
 //zero pin image
 
 const zeroPinImage = document.querySelector('.image-step-zero');
-zeroPinImage.style.width = '125px';
-zeroPinImage.style.height = '250px'
+zeroPinImage.style.width = '100px';
 zeroPinImage.style.transform = 'rotate(180deg)';
-zeroPinImage.style.position = 'absolute';
-zeroPinImage.style.top = '135px';
-zeroPinBar.appendChild(zeroPinImage);
 
 
+
+const zeroPinContainer = document.createElement('div');
+zeroPinContainer.appendChild(zeroPinImage);
+zeroPinContainer.appendChild(zeroPinText);
+zeroPinContainer.style.position='absolute';
+zeroPinContainer.style.top=pinHeight;
+zeroPinBar.appendChild(zeroPinContainer);
 
 let percentageBarSize = 0;
 fixedContainerHorizontalProgressBar.style.transition = "1s";
@@ -298,9 +319,6 @@ function nextStep() {
     } else if (percentageBarSize == '100') {
         fourthPinBar.style.opacity = '1';
     }
-
-
-
 };
 
 
