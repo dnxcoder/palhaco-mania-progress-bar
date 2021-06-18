@@ -2,7 +2,6 @@
 
 const pgbContainer = document.querySelector('.containerClownpg');
 
-
 //container for progressBar
 
 const containerPG = document.createElement('div');
@@ -89,7 +88,6 @@ setInterval(() => {
     if (barLocation == 0) { //If bar moved all the way put it back
 
         barLocation = -fixedContainerHorizontalProgressBar.clientWidth *9;
-        console.log('entrei');
     }
     barLocation += 1;
 
@@ -127,8 +125,6 @@ thirdPinBar.style.left = "75%";
 const fourthPinBar = secondPinBar.cloneNode(true);
 
 fourthPinBar.style.left = `100%`;
-
-
 
 //Rendering
 containerPG.appendChild(zeroPinBar);
@@ -302,7 +298,7 @@ function nextStep() {
     if (percentageBarSize > 100) {
         percentageBarSize = 0;
     }
-    console.log(percentageBarSize);
+
     fixedContainerHorizontalProgressBar.style.width = `${percentageBarSize}%`;
 
     if (percentageBarSize == 0) {
