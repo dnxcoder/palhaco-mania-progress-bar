@@ -1,4 +1,4 @@
-let stepBarProgress = 100;
+
 
 const pgbContainer = document.querySelector('.containerClownpg');
 
@@ -22,7 +22,7 @@ containerProgressBar.style.border = "2px solid #FF974B";
 //creating fixed horizontal progressBar
 
 const fixedContainerHorizontalProgressBar = document.createElement('div');
-fixedContainerHorizontalProgressBar.style.width = `${stepBarProgress}%`;
+fixedContainerHorizontalProgressBar.style.width = "100%";
 fixedContainerHorizontalProgressBar.style.height = "100%"
 fixedContainerHorizontalProgressBar.style.backgroundColor = "purple";
 fixedContainerHorizontalProgressBar.style.display = "flex";
@@ -61,7 +61,7 @@ containerMovedHorizontalProgressBar.appendChild(smallOrangeBar);
 containerMovedHorizontalProgressBar.appendChild(smallWhiteBar);
 
 
-containerMovedHorizontalProgressBar.style.width = `${fixedContainerHorizontalProgressBar.clientWidth * 99}px`; //*2
+containerMovedHorizontalProgressBar.style.width = `${fixedContainerHorizontalProgressBar.clientWidth * 10}px`; //*2
 
 const quantityOfNecessarySmallBar = (containerMovedHorizontalProgressBar.clientWidth / smallOrangeBar.clientWidth);
 
@@ -77,7 +77,7 @@ for (let i = 0; i < quantityOfNecessarySmallBar; i++) {
     }
 };
 
-let barLocation = -fixedContainerHorizontalProgressBar.clientWidth * 98; // *1
+let barLocation = -containerMovedHorizontalProgressBar.clientWidth * 1; // *1
 let speedBar = 2;
 
 //Moving bars
@@ -86,8 +86,10 @@ setInterval(() => {
 
     containerMovedHorizontalProgressBar.style.transform = `translateX(${barLocation}px)`;
 
-    if (barLocation == 0) {
-        barLocation = -fixedContainerHorizontalProgressBar.clientWidth + smallWhiteBar.clientWidth;
+    if (barLocation == 0) { //If bar moved all the way put it back
+
+        barLocation = -fixedContainerHorizontalProgressBar.clientWidth *9;
+        console.log('entrei');
     }
     barLocation += 1;
 
@@ -273,7 +275,7 @@ function nextStep() {
     secondPinBar.style.transition = '1.5s';
     thirdPinBar.style.transition = '1.5s';
     fourthPinBar.style.transition = '1.5s';
-   
+
 
     percentageBarSize += 25;
     if (percentageBarSize > 100) {
