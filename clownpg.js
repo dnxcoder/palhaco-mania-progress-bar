@@ -77,7 +77,7 @@ for (let i = 0; i < quantityOfNecessarySmallBar; i++) {
     }
 };
 
-let barLocation = -containerMovedHorizontalProgressBar.clientWidth * 1; // *1
+let barLocation = -fixedContainerHorizontalProgressBar.clientWidth * 9; // *1
 let speedBar = 2;
 
 //Moving bars
